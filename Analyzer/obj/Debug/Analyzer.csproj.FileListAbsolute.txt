@@ -1,0 +1,15 @@
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\bin\Debug\Analyzer.exe.config
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\bin\Debug\Analyzer.exe
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\bin\Debug\Analyzer.pdb
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.csprojResolveAssemblyReference.cache
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.Properties.Resources.resources
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.csproj.GenerateResource.Cache
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.exe
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.pdb
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.InversionControl.resources
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.MainForm.resources
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.csproj.CoreCompileInputs.cache
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.OverlayPanel.resources
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.LineChart.resources
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.ErrorFilesDialog.resources
+C:\Diplomarbeit_Geoelektrik\Programme\Analyzer\Analyzer\obj\Debug\Analyzer.InversionsPerDay.resources
