@@ -23,7 +23,7 @@ namespace Analyzer
 
         public void SetDifference()
         {
-            for(int i = 1; i < Resistivities.Count; i++)
+            for (int i = 1; i < Resistivities.Count; i++)
             {
                 Difference += Math.Abs(Resistivities[i - 1] - Resistivities[i]);
             }
@@ -181,9 +181,10 @@ namespace Analyzer
         {
             float min = 1000000;
             float max = -1000000;
-            foreach(ModelBlock mb in input)
+            foreach (ModelBlock mb in input)
             {
-                if (mb.Resistivities[blockset] < min) {
+                if (mb.Resistivities[blockset] < min)
+                {
                     min = mb.Resistivities[blockset];
                 }
                 if (mb.Resistivities[blockset] > max)
@@ -205,15 +206,15 @@ namespace Analyzer
             float min = 1000000;
             float max = -1000000;
 
-            foreach(ModelBlock mb in input)
+            foreach (ModelBlock mb in input)
             {
                 float currentmin = mb.Resistivities.Min();
                 float currentmax = mb.Resistivities.Max();
-                if(currentmin < min)
+                if (currentmin < min)
                 {
                     min = currentmin;
                 }
-                if(currentmax > max)
+                if (currentmax > max)
                 {
                     max = currentmax;
                 }
@@ -226,8 +227,8 @@ namespace Analyzer
         {
             float min = 1000000;
             float max = -1000000;
-            
-            foreach(ModelBlock mb in input)
+
+            foreach (ModelBlock mb in input)
             {
                 float cur = mb.AvgResistivity;
                 if (cur < min)
@@ -278,13 +279,21 @@ namespace Analyzer
         public static float GetRMSError(string[] allxyz)
         {
             float error = 0f;
-            for(int i = 0; i < allxyz.Length; i++)
+            for (int i = 0; i < allxyz.Length; i++)
             {
                 StreamReader sr = new StreamReader(allxyz[i]);
-                string rms;
+                string rms = sr.ReadLine();
                 //Skip to rms error part
-                while (!(rms = sr.ReadLine()).Contains("/Percent RMS error for this model is   ")) { }
-                error += float.Parse(rms.Split(' ').Last(), CultureInfo.InvariantCulture);
+                for (; ; rms = sr.ReadLine())
+                {
+                    if (rms == null)
+                        break;
+
+                    if (rms.Contains("/Percent RMS error for this model is   "))
+                        break;
+                }
+                if(rms != null)
+                    error += float.Parse(rms.Split(' ').Last(), CultureInfo.InvariantCulture);
             }
 
             return error / allxyz.Length;
@@ -306,7 +315,7 @@ namespace Analyzer
                     if (line == "")
                     {
                         errorfiles.Add(time);
-                        for(int m2 = 0; m2 < m; m2++)
+                        for (int m2 = 0; m2 < m; m2++)
                         {
                             input[m2].Resistivities.RemoveAt(input[m2].Resistivities.Count - 1);
                         }
@@ -318,15 +327,15 @@ namespace Analyzer
                     }
                 }
             }
-            for(int i = 0; i < input.Length; i++)
+            for (int i = 0; i < input.Length; i++)
             {
                 input[i].SetDifference();
                 input[i].AvgResistivity = input[i].Resistivities.Average();
             }
-            if(errorfiles.Count > 0)
+            if (errorfiles.Count > 0)
             {
                 ErrorFilesDialog efd = new ErrorFilesDialog();
-                for(int i = errorfiles.Count - 1; i >= 0; i--)
+                for (int i = errorfiles.Count - 1; i >= 0; i--)
                 {
                     efd.AddErrorFile(allxyz[errorfiles[i]]);
                     dates.RemoveAt(errorfiles[i]);
@@ -343,9 +352,9 @@ namespace Analyzer
             float maxx = -9999;
             float maxy = -9999;
 
-            foreach(ModelBlock mb in input)
+            foreach (ModelBlock mb in input)
             {
-                foreach(PointF p in real ? mb.RealCorners : mb.DrawCorners)
+                foreach (PointF p in real ? mb.RealCorners : mb.DrawCorners)
                 {
                     if (p.X < minx)
                         minx = p.X;
@@ -365,10 +374,10 @@ namespace Analyzer
         {
             RectangleF bounds = GetBounds(input, true);
             PointF center = new PointF(bounds.Left + (bounds.Right - bounds.Left) / 2, bounds.Top + (bounds.Bottom - bounds.Top) / 2);
-            for(int m = 0; m < input.Length; m++)
+            for (int m = 0; m < input.Length; m++)
             {
                 input[m].DrawCorners = new List<PointF>();
-                foreach(PointF p in input[m].RealCorners)
+                foreach (PointF p in input[m].RealCorners)
                 {
                     input[m].DrawCorners.Add(new PointF(p.X - center.X, p.Y - center.Y));
                 }
